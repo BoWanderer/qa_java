@@ -9,7 +9,6 @@ import org.mockito.Mockito;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
@@ -27,17 +26,9 @@ public class LionTest {
                 expectedKittensAmount, actualKittensAmount);
     }
 
-    @Test
-    public void shouldThrowExceptionWithWrongSexValue() {
-        Exception exception = assertThrows(Exception.class,
-                () -> { Lion lion = new Lion("Львёнок", feline);
-        });
-
-        String expectedMessage = "Используйте допустимые значения пола животного - самец или самка";
-        String actualMessage = exception.getMessage();
-
-        assertEquals("Exception message is incorrect",
-                expectedMessage, actualMessage);
+    @Test(expected = Exception.class)
+    public void doesHaveManeReturnsExceptionWithUnknownSex() throws Exception {
+        Lion lion = new Lion("Львёнок", feline);
     }
 
     @Test

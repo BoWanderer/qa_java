@@ -22,8 +22,7 @@ public class FelineParameterizedTest {
         return new Object[][] {
                 {0, 0},
                 {1, 1},
-                {11, 11},
-                {2_147_483_647, 2_147_483_647}
+                {15, 15}
         };
     }
 
